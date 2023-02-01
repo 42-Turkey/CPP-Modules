@@ -14,10 +14,10 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - name: make all
-      run: make all -C *
+      run: make all
     - name: make clean
-      run: make clean -C *
+      run: make clean
     - name: make fclean
-      run: make fclean -C *
+      run: make fclean
     - name: make re
-      run: make re -C *
+      run: make re
