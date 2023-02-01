@@ -2,7 +2,7 @@
 
 #include "Replace.hpp"
 
-Replace::Replace ( std::string fname ) {
+Replace::Replace ( char *fname ) {
 	_inFile.open(fname);
 	if (!_inFile)
 	{

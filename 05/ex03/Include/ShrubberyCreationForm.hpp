@@ -6,6 +6,8 @@
 # include <iostream>
 # include <fstream>
 # include "AForm.hpp"
+# include <cstring> //strerror func in linux
+
 
 class ShrubberyCreationForm: public AForm {
 private:

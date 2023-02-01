@@ -1,6 +1,8 @@
 #pragma once
 
 # include <iostream>
+# include <cstdlib> //for srand() func in linux
+# include <typeinfo> ////for bad_cast in linux
 
 template <typename T>
 class Array {
@@ -27,7 +29,7 @@ public:
 		if ( this != &var ) {
 			this->arr = new T[this->len];
 			this->len = var.len;
-			for (int i = 0; i < len; i++)
+			for (unsigned int i = 0; i < len; i++)
 				this->arr[i] = var.arr[i];
 		}
 		return *this;

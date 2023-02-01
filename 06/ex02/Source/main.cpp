@@ -1,6 +1,8 @@
 #include "A.hpp"
 #include "B.hpp"
 #include "C.hpp"
+# include <cstdlib> //for srand() func in linux
+# include <typeinfo> ////for bad_cast in linux
 
 Base	*generate( void ) {
 	std::srand (time(NULL));
@@ -34,17 +36,17 @@ void	identify( Base &p ) {
 		Base ptr = dynamic_cast<A&>(p);
 		(void) ptr;
 		std::cout << "Address Variable type is -> [A]" << std::endl;
-	} catch (std::bad_cast) {}
+	} catch (std::bad_cast &e) { (void)e; }
 	try {
 		Base ptr = dynamic_cast<B&>(p);
 		(void) ptr;
 		std::cout << "Address Variable type is -> [B]" << std::endl;
-	} catch (std::bad_cast) {}
+	} catch (std::bad_cast &e) { (void)e; }
 	try {
 		Base ptr = dynamic_cast<C&>(p);
 		(void) ptr;
 		std::cout << "Address Variable type is -> [C]" << std::endl;
-	} catch (std::bad_cast) {}
+	} catch (std::bad_cast &e) { (void)e; }
 }
 
 int	main( void ) {

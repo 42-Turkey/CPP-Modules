@@ -52,7 +52,7 @@ int main( void )
 
 
 	// Array of animals
-	const AAnimal	*(animal_array[4]);
+	const AAnimal	*animal_array[4];
 	std::cout << std::endl;
 	// Half filled with dogs
 	for (int i = 0; i < 2; i++)

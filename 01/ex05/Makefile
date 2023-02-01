@@ -3,7 +3,14 @@
 NAME = harl
 
 CXX = c++
-CXXFLAGS= -Wall -Wextra -Werror -std=c++98
+
+OS	= $(uname -a)
+
+ifeq ($(OS), Darwin)
+	CXXFLAGS = -Wall -Werror -Werror -std=c++98 -pedantic
+else
+	CXXFLAGS = -Wall -Werror -Werror
+endif
 
 SRC = main.cpp Harl.cpp
 

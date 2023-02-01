@@ -23,7 +23,13 @@ RM = rm -rf
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Werror -std=c++98 -pedantic
+OS	= $(uname -a)
+
+ifeq ($(OS), Darwin)
+	CXXFLAGS = -Wall -Werror -Werror -std=c++98 -pedantic
+else
+	CXXFLAGS = -Wall -Werror -Werror
+endif
 
 all: $(NAME)
 	@echo "$(RED)Compiling is done.$(RESET)"

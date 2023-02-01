@@ -34,8 +34,10 @@ clean:
 	else echo "\033[31mObject directory not found\033[0;39m" ; fi
 
 fclean: clean
-	@if [[ -f $(NAME) && -d $(OBJ_DIR) ]]; then $(RM) $(NAME) $(OBJ_DIR); echo "\033[31mObject directory and executable deleted\033[0;39m" ; \
- 	else echo "\033[31mObject directory and executable not found\033[0;39m" ; fi
+	@if [ -f $(NAME) ] ; then $(RM) $(NAME) ; echo "\033[31mExecutable deleted\033[0;39m"; \
+	else echo "\033[31mExecutable not found\033[0;39m" ; fi
+	@if [ -d $(OBJ_DIR) ]; then $(RM) $(OBJ_DIR); echo "\033[31mObject directory deleted\033[0;39m" ; \
+ 	else echo "\033[31mObject directory not found\033[0;39m" ; fi
 
 re: fclean all
 

@@ -2,6 +2,9 @@
 
 #include "../Include/Convert.hpp"
 
+// std::stoi vs linux also came in c++11.
+// The Makefile will also be compiled specifically for linux.
+
 Convert::Convert () {
 	std::cout << "Convert: Constructor called." << std::endl;
 }

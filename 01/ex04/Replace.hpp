@@ -5,6 +5,7 @@
 
 # include <iostream>
 # include <fstream>
+# include <cstdlib> //exit func
 
 class Replace
 {
@@ -14,7 +15,7 @@ private:
 	std::string		_text;
 
 public:
-	Replace ( std::string fname );
+	Replace ( char *fname );
 	~Replace();
 
 	int		replaceFile ( std::string stringToReplace, std::string replacement );

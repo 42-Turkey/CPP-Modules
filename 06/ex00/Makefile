@@ -12,6 +12,8 @@ CUT			=	\033[K
 SRC_DIR		=	Source/
 OBJ_DIR		=	Library/
 
+OS 			:= $(shell uname)
+
 SRC_FILES = Convert.cpp main.cpp
 
 OBJ_FILES = $(SRC_FILES:.cpp=.o)
@@ -23,8 +25,11 @@ RM = rm -rf
 
 CXX = c++
 
-CXXFLAGS = -Wall -Werror -Werror -std=c++98 -pedantic
-
+ifeq ($(OS), Darwin)
+	CXXFLAGS = -Wall -Werror -Werror -std=c++98 -pedantic
+else
+	CXXFLAGS = -Wall -Werror -Werror
+endif
 all: $(NAME)
 	@echo "$(RED)Compiling is done.$(RESET)"
 

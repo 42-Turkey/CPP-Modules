@@ -1,6 +1,7 @@
 # pragma once
 
 # include <iostream>
+# include <cstdint> //uintptr_t in linux
 
 struct Data {
 	int		a;

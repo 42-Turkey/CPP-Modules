@@ -6,10 +6,12 @@
 # include <iostream>
 # include <fstream>
 # include "AForm.hpp"
+# include <cstring> //strerror func in linux
+
 
 class ShrubberyCreationForm: public AForm {
 private:
-	std::string _target;
+	std::string	_target;
 public:
 	ShrubberyCreationForm();
 	ShrubberyCreationForm ( std::string target_ );
