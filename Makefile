@@ -22,6 +22,14 @@ $(NAME): $(build)
 	done
 $(build):
 	@if [ !.mycpp ] ; then mkdir -p $(NAME) ; fi
+
+clean:
+	@for i in $$( seq 0 8 ); do \
+		for j in $$( seq 0 8 ); do \
+				/bin/sh -c "cd 0$$i/ex0$$j && make clean" ; \
+		done ; \
+	done
+
 fclean:
 	@if [ -d $(NAME) ] ; then \
 		$(RM) $(NAME) ; \
@@ -29,5 +37,17 @@ fclean:
 	else \
 		echo "$(RED)$(NAME) not deleted!$(RESET)" ; \
 	fi
+		@for i in $$( seq 0 8 ); do \
+		for j in $$( seq 0 8 ); do \
+				/bin/sh -c "cd 0$$i/ex0$$j && make fclean" ; \
+		done ; \
+	done
 
-.PHONY: all build clean fclean
+re:
+	@for i in $$( seq 0 8 ); do \
+		for j in $$( seq 0 8 ); do \
+				/bin/sh -c "cd 0$$i/ex0$$j && make re" ; \
+		done ; \
+	done
+
+.PHONY: all build clean fclean re
