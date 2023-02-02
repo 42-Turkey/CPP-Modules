@@ -8,6 +8,8 @@ CUT		=	\033[K
 IGREEN	=	\033[0;92m
 LAST	= \033[0;39m
 
+pwd := $(shell echo $(PWD))
+
 RM = rm -rf
 #https://stackoverflow.com/questions/27030888/for-loop-of-shell-in-makefile
 #https://stackoverflow.com/questions/54020765/simple-loop-over-files-in-some-directory-makefile
@@ -26,7 +28,8 @@ $(build):
 clean:
 	@for i in $$( seq 0 8 ); do \
 		for j in $$( seq 0 8 ); do \
-				/bin/sh -c "cd 0$$i/ex0$$j && make clean" ; \
+				/bin/sh -c "cd $(pwd)/0$$i/ex0$$j && make clean" ; \
+				echo $(pwd)/0$$i/ex0$$j ; \
 		done ; \
 	done
 
@@ -35,11 +38,11 @@ fclean:
 		$(RM) $(NAME) ; \
 		echo "$(RED)$(NAME) deleted!$(RESET)" ; \
 	else \
-		echo "$(RED)$(NAME) not deleted!$(RESET)" ; \
+		echo "$(RED)$(NAME) not found!$(RESET)" ; \
 	fi
 		@for i in $$( seq 0 8 ); do \
-		for j in $$( seq 0 8 ); do \
-				/bin/sh -c "cd 0$$i/ex0$$j && make fclean" ; \
+			for j in $$( seq 0 8 ); do \
+				/bin/sh -c "cd $(pwd)/0$$i/ex0$$j && make fclean" ; \
 		done ; \
 	done
 

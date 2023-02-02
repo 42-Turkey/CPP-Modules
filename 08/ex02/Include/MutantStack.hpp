@@ -19,10 +19,10 @@ public:
 
 	itt					begin() { return this->c.begin(); }
 	itt					end()	{ return this->c.end(); }
-	const_itt			begin()	{ return this->c.begin(); }
-	const_itt			end()	{ return this->c.end(); }
-	reverse_itt			begin()	{ return this->c.rbegin(); }
-	reverse_itt			end()	{ return this->c.rend(); }
-	const_reverse_itt	begin()	{ return this->c.rbegin(); }
-	const_reverse_itt	end()	{ return this->c.rend(); }
+	const_itt			constBegin()	{ return this->c.begin(); }
+	const_itt			constEnd()	{ return this->c.end(); }
+	reverse_itt			reverseBegin()	{ return this->c.rbegin(); }
+	reverse_itt			reverseEnd()	{ return this->c.rend(); }
+	const_reverse_itt	constReverseBegin()	{ return this->c.rbegin(); }
+	const_reverse_itt	constReverseEnd()	{ return this->c.rend(); }
 };
